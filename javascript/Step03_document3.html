@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step03_document3.html</title>
+  </head>
+  <body>
+    <p>p1</p>
+    <p class="my-class">p2</p>
+    <p id="one" class="my-class your-class">p3</p>
+    <p id="two" class="my-class your-class">p4</p>
+    <p>p5</p>
+    <button onclick="fontchange()">변경하기</button>
+    <button onclick="fontreset()">원상복구</button>
+    <script>
+      // 클래스 명이 my-class인 모든 요소의 글자 색을 red로 변경
+      // 아래에 javascript 3줄을 작성하면 됨
+      // 페이지 로딩 시점에 변경되면 됨
+      // document.querySelectorAll() 함수를 사용
+      document.querySelectorAll(".my-class")[0].style.color = "red";
+      document.querySelectorAll(".my-class")[1].style.color = "red";
+      document.querySelectorAll(".my-class")[2].style.color = "red";
+      // 클래스 명이 your-class인 모든 요소의 배경 색을 yellow로 변경 2줄 코디
+      document.querySelectorAll(".your-class")[0].style.backgroundColor =
+        "yellow";
+      document.querySelectorAll(".your-class")[1].style.backgroundColor =
+        "yellow";
+      // "변경하기" 버튼을 눌렀을 때 클래스명이 your-class인 모든 요소의 fontSize를 20px로
+      // 지정되도록 프로그래밍 하기 (이전 예제 참고)
+      function fontchange() {
+        document.querySelectorAll(".your-class")[0].style.fontSize = "20px";
+        document.querySelectorAll(".your-class")[1].style.fontSize = "20px";
+      }
+      // "원상복구" 버튼을 눌렀을 때 클래스명이 your-class인 모든 요소의 fontSize를 16px로
+      // 지정되도록 프로그래밍 하기 (이전 예제 참고)
+      function fontreset() {
+        document.querySelectorAll(".your-class")[0].style.fontSize = "16px";
+        document.querySelectorAll(".your-class")[1].style.fontSize = "16px";
+      }
+    </script>
+  </body>
+</html>

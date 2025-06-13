@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step03_document2.html</title>
+    <style>
+      /* 요소명 선택자 */
+      p {
+        color: red;
+      }
+      /* class 선택자 */
+      .my-class {
+        background-color: yellow;
+      }
+      .your-class {
+        border: 5px solid blue;
+      }
+      /* id 선택자 */
+      #one {
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>p1</p>
+    <p class="my-class">p2</p>
+    <!--다중 클래스를 부여 할 때는 띄어쓰기를 해서 부여하면 된다-->
+    <p id="one" class="my-class your-class">p3</p>
+    <p id="two" class="my-class your-class">p4</p>
+    <p>p5</p>
+    <script>
+      // id가 one인 요소의 배경 색을 green으로 변경
+      document.querySelector("#one").style.backgroundColor = "green";
+      // id가 two인 요소의 글자색을 C1ACD7로 변경
+      document.querySelector("#two").style.color = "#c1acd7";
+    </script>
+  </body>
+</html>

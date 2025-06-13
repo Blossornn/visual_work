@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step05_example2.html</title>
+    <style>
+      img {
+        width: 100px;
+        transition: margin-left 1s ease-out;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="moveBtn">이동</button><br />
+    <button id="moveBtn2">이동2</button><br />
+    <img id="one" src="https://picsum.photos/id/237/200/300" /><br />
+    <script>
+      let mLeft = 100;
+      //이동 버튼을 누르면 id가 one인 이미지의 왼쪽 마진을 mLeft 변수 안에 들어있는 숫자 만큼 적용하기
+      document.querySelector("#moveBtn").addEventListener("click", () => {
+        // mLeft 변수에 100을 plus 한 값을 대입한다
+        mLeft = mLeft + 100;
+        // mLeft 안에 있는 값을 이용해서 marginLeft 값에 반영
+        document.querySelector("#one").style.marginLeft = `${mLeft}px`;
+      });
+      document.querySelector("#moveBtn2").addEventListener("click", () => {
+        // mLeft 변수에 100을 뺀 값을 값을 대입한다
+        mLeft = mLeft - 100;
+        // mLeft 안에 있는 값을 이용해서 marginLeft 값에 반영
+        document.querySelector("#one").style.marginLeft = `${mLeft}px`;
+      });
+    </script>
+  </body>
+</html>

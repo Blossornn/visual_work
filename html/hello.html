@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나의 페이지</title>
+    <style>
+      h1 {
+        color: #cdacd7;
+      }
+      h2 {
+        color: yellowgreen;
+      }
+      button {
+        background-color: green;
+        color: whitesmoke;
+        margin: 20ex;
+        width: 50px;
+        height: 50px;
+        transition: all 0.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>안녕하세요 저는 고영석입니다</h1>
+    <h2>첫 웹 페이지</h2>
+    <button
+      onmousemove="clicked()"
+      onmouseout="outed()"
+      onfocus="focusButton()"
+      onblur="blurButton()"
+    >
+      CLICK ! 👍
+    </button>
+
+    <script>
+      function clicked() {
+        const btn = document.querySelector("button");
+        btn.style.width = "100px";
+        btn.style.height = "100px";
+      }
+
+      function outed() {
+        const btn = document.querySelector("button");
+        btn.style.width = "50px";
+        btn.style.height = "50px";
+      }
+
+      function focusButton() {
+        document.querySelector("button").style.backgroundColor = "orange";
+      }
+
+      function blurButton() {
+        document.querySelector("button").style.backgroundColor = "green";
+      }
+    </script>
+  </body>
+</html>

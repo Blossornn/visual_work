@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step07_example5.html</title>
+    <style>
+      /* 여러 요소를 선택하는 다중 선택자*/
+      table,
+      th,
+      td {
+        border: 1px solid #c1acd7;
+        /* 이중 경계선 방지 */
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        width: 200px;
+        text-align: center;
+      }
+      thead {
+        background-color: lightcyan;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>회원목록</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>주소</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <button id="getBtn">회원목록 받아오기</button>
+    <script>
+      /*
+        1. 회원목록 받아오기 버튼을 누르면
+        2. 서버에 members.json을 요청하고
+        3. 응답되는 data를 이용해서 tbody에 tr을 5개 추가해보기
+      */
+      document.querySelector("#getBtn").addEventListener("click", () => {
+        fetch("members.json")
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            console.log(data);
+
+            const tbody = document.querySelector("tbody");
+            data.forEach((members) => {
+              const tr = `
+            <tr>
+                <td>${members.num}</td>
+                <td>${members.name}</td>
+                <td>${members.addr}</td>
+                </tr>
+          `;
+              tbody.insertAdjacentHTML("beforeend", tr);
+            });
+          });
+      });
+    </script>
+  </body>
+</html>

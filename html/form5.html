@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form5.html</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f9f9fb;
+        margin: 0;
+        padding: 40px;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+      }
+
+      h1 {
+        font-size: 24px;
+        color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 14px;
+        color: #555;
+        line-height: 1.6;
+      }
+
+      form {
+        margin-top: 20px;
+      }
+
+      fieldset {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 20px;
+      }
+
+      legend {
+        font-weight: bold;
+        color: #333;
+        padding: 0 8px;
+      }
+
+      label {
+        display: block;
+        margin: 8px 0;
+        color: #444;
+      }
+
+      input[type="email"],
+      input[type="color"],
+      input[type="date"],
+      input[type="datetime-local"],
+      input[type="number"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 6px 0 14px 0;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+        font-size: 14px;
+      }
+
+      input[type="checkbox"] {
+        margin-right: 6px;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
+
+      button {
+        background-color: #6a5acd;
+        color: white;
+        padding: 10px 18px;
+        margin-right: 10px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s ease;
+      }
+
+      button[type="reset"] {
+        background-color: #ccc;
+        color: #333;
+      }
+
+      button:hover {
+        background-color: #5949c2;
+      }
+
+      button[type="reset"]:hover {
+        background-color: #bbb;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>폼 요소에 기본값 설정하기</h1>
+      <p>
+        서버에서 클라이언트에게 폼을 응답할 때 이미 저장된 값을 출력한 채로
+        응답을 해야할 때가 있다. 예를 들어 회원 가입된 정보 보기로 이동한다면
+        DB에 이미 저장된 내용을 출력 해 주어야 한다.
+      </p>
+      <form action="update">
+        <fieldset>
+          <legend>취미 정보 선택</legend>
+          <label>
+            <input type="checkbox" name="hobby" value="leather" /> 가죽공예
+          </label>
+          <label>
+            <input type="checkbox" name="hobby" value="drum" /> 드럼
+          </label>
+          <label>
+            <input type="checkbox" name="hobby" value="piano" /> 피아노
+          </label>
+          <label>
+            <input type="checkbox" name="hobby" value="etc" /> 기타
+          </label>
+          <label>
+            <input type="checkbox" name="hobby" value="coding" checked />코딩
+          </label>
+        </fieldset>
+        <br />
+        이메일
+        <input type="email" name="email" value="aaa@naver.com" readonly />
+        <br />
+        <select name="job" id="job">
+          <option value="">선택</option>
+          <option value="gong">공무원</option>
+          <option value="doctor">의사</option>
+          <option value="programer" selected>개발자</option>
+          <option value="teacher">선생님</option>
+          <option>기타</option>
+        </select>
+        색상 <input type="color" value="#c1acd7" />
+        <br />
+        날짜 <input type="date" value="2025-05-01" />
+        <br />
+        날짜, 시간 <input type="datetime-local" value="2025-05-01 14:30" />
+        <br />
+        숫자 <input type="number" name="number" min="0" max="20" step="1" />
+        <button type="submit">수정하기</button>
+        <button type="reset">초기화</button>
+        <textarea cols="20" rows=""></textarea>
+        <br />
+      </form>
+    </div>
+  </body>
+</html>

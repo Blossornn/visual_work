@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step03_document9.html</title>
+  </head>
+  <body>
+    <input type="text" id="inputMsg" placeholder="메시지 입력..." />
+    <button onclick="send()">추가</button>
+    <div id="wrapper"></div>
+    <script>
+      /*
+      메시지를 입력하고 추가 버튼을 누르면
+      1. 입력한 메시지를 읽어와서 변수에 담는다
+      2. p 요소를 새로 만든다
+      3. 새로 만든 p 요소에 변수에 담긴 메시지를 innerText로 출력한다
+      4. 새로 만든 p 요소에 id가 wrapper인 div의 자식요소로 추가한다
+      */
+      function send() {
+        const msg = document.querySelector("#inputMsg").value; // 입력된 메시지 가져오기
+        const p = document.createElement("p"); // 새로운 <p> 요소 생성
+        p.innerText = msg; // <p> 요소에 메시지 내용 설정
+        document.querySelector("#wrapper").append(p); // #wrapper에 <p> 요소 추가
+        document.querySelector("#inputMsg").value = ""; // 입력 필드 초기화
+      }
+    </script>
+  </body>
+</html>

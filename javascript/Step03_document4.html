@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step03_document4.html</title>
+  </head>
+  <body>
+    <input type="text" id="inputMsg" placeholder="메시지 입력..." />
+    <button onclick="go()">전송</button>
+    <p id="result">...</p>
+    <script>
+      /*
+            위의 input 요소에 문자열을 입력하고 전송 버튼을 눌렀을 때
+            1. 입력한 문자열을 읽어와서 msg 라는 이름의 상수에 담고
+            2. msg에 담긴 문자열을 위의 p요소의 innerText로 지정하는 프로그래밍 해보기
+        */
+      function go() {
+        const msg = document.querySelector("#inputMsg").value;
+        document.querySelector("#result").innerText = msg;
+        document.querySelector("#inputMsg").value = "";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step07_example7.html</title>
+    <style>
+      img {
+        max-width: 100px;
+        height: auto;
+      }
+      /* 여러 요소를 선택하는 다중 선택자*/
+      table,
+      th,
+      td {
+        border: 1px solid #c1acd7;
+        /* 이중 경계선 방지 */
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        width: 200px;
+        text-align: center;
+        font-style: italic;
+        font-weight: bold;
+      }
+      thead {
+        background-color: lightcyan;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <table>
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>나라이름</th>
+            <th>국기</th>
+            <th>수도</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <script>
+      fetch("countries.json")
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          console.log(data);
+          const tbody = document.querySelector("tbody");
+          data.forEach((item) => {
+            const tr = `
+             <tr>
+                <td>${item.id}</td>
+                <td>${item.name}</td>
+               <td><img src ="${item.imageUrl}"</img></td>
+                <td>${item.capital}</td>
+                </tr>
+            `;
+            tbody.insertAdjacentHTML("beforeend", tr);
+          });
+        });
+    </script>
+  </body>
+</html>

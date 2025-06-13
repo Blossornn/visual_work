@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>기깔나는 예제</title>
+    <style>
+      /* 전체 배경 그라데이션 애니메이션 */
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(-45deg, #ff6b6b, #feca57, #1dd1a1, #54a0ff);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: white;
+        text-align: center;
+      }
+
+      h1 {
+        font-weight: 900;
+        font-size: 3rem;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
+
+      button {
+        margin-top: 30px;
+        padding: 15px 40px;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #333;
+        border: none;
+        border-radius: 40px;
+        cursor: pointer;
+        background: #fff;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      button:hover {
+        background: #feca57;
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+        transform: scale(1.05);
+      }
+
+      /* 텍스트 페이드 애니메이션 */
+      .fade-text {
+        opacity: 1;
+        transition: opacity 0.5s ease;
+      }
+      .fade-text.fade-out {
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="displayText" class="fade-text">안녕하세요! 기깔나는 예제입니다.</h1>
+    <button id="changeBtn">텍스트 바꾸기</button>
+
+    <script>
+      const displayText = document.getElementById("displayText");
+      const changeBtn = document.getElementById("changeBtn");
+
+      const texts = [
+        "웹 개발, 이젠 재밌게!",
+        "CSS 애니메이션 끝내주지?",
+        "JavaScript로 인터랙션 추가!",
+        "기깔나는 코드, 계속 만들자!",
+        "여기서 멈추지 말고 더 발전하자!",
+      ];
+
+      let index = 0;
+
+      changeBtn.addEventListener("click", () => {
+        displayText.classList.add("fade-out");
+
+        setTimeout(() => {
+          index = (index + 1) % texts.length;
+          displayText.textContent = texts[index];
+          displayText.classList.remove("fade-out");
+        }, 500); // fade-out 시간과 맞춤
+      });
+    </script>
+  </body>
+</html>
